@@ -30,7 +30,19 @@ public class DeveloperController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+
+		String developerId = request.getParameter("id");
+		
+		DeveloperDAOImpl developerDAO = new DeveloperDAOImpl();
+		ArrayList<DeveloperImpl> developers = developerDAO.getDeveloper(Integer.parseInt(developerId));
+		developerDAO.deleteDeveloper(developers.get(0));
+		
+		PrintWriter out = response.getWriter();
+		response.setContentType("application/json");
+		String json = new Gson().toJson(developers);
+		out.println(json);
+		out.close();
+
 	}
 
 	/**
