@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="C:/Desarrollo/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="C:/Desarrollo/json/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="C:/Desarrollo/gson/gson-2.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Desarrollo/libs/javacsv.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

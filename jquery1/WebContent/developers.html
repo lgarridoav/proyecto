@@ -1005,10 +1005,14 @@
 									<i class="ace-icon fa fa-hand-o-right"></i>
 									Please note that demo server is not configured to save the changes, therefore you may see an error message.
 								</div>
-
+								
 								<table id="grid-table"></table>
 
 								<div id="grid-pager"></div>
+								
+								<div id="links">
+									<a id="export" href="" target="_blank">Exportar a CSV</a>
+								</div>
 
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
@@ -1066,7 +1070,7 @@
 		<!-- page specific plugin scripts -->
 		<script src="assets/js/bootstrap-datepicker.min.js"></script>
 		<script src="assets/js/jquery.jqGrid.min.js"></script>
-		<script src="assets/js/grid.locale-en.js"></script>
+		<script src="assets/js/grid.locale-es.js"></script>
 
 		<!-- ace scripts -->
 		<script src="assets/js/ace-elements.min.js"></script>
@@ -1074,49 +1078,10 @@
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			var grid_data = 
-			[ 
-				{id:"1",name:"Desktop Computer",note:"note",stock:"Yes",ship:"FedEx", sdate:"2007-12-03"},
-				{id:"2",name:"Laptop",note:"Long text ",stock:"Yes",ship:"InTime",sdate:"2007-12-03"},
-				{id:"3",name:"LCD Monitor",note:"note3",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-				{id:"4",name:"Speakers",note:"note",stock:"No",ship:"ARAMEX",sdate:"2007-12-03"},
-				{id:"5",name:"Laser Printer",note:"note2",stock:"Yes",ship:"FedEx",sdate:"2007-12-03"},
-				{id:"6",name:"Play Station",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-				{id:"7",name:"Mobile Telephone",note:"note",stock:"Yes",ship:"ARAMEX",sdate:"2007-12-03"},
-				{id:"8",name:"Server",note:"note2",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-				{id:"9",name:"Matrix Printer",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-				{id:"10",name:"Desktop Computer",note:"note",stock:"Yes",ship:"FedEx", sdate:"2007-12-03"},
-				{id:"11",name:"Laptop",note:"Long text ",stock:"Yes",ship:"InTime",sdate:"2007-12-03"},
-				{id:"12",name:"LCD Monitor",note:"note3",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-				{id:"13",name:"Speakers",note:"note",stock:"No",ship:"ARAMEX",sdate:"2007-12-03"},
-				{id:"14",name:"Laser Printer",note:"note2",stock:"Yes",ship:"FedEx",sdate:"2007-12-03"},
-				{id:"15",name:"Play Station",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-				{id:"16",name:"Mobile Telephone",note:"note",stock:"Yes",ship:"ARAMEX",sdate:"2007-12-03"},
-				{id:"17",name:"Server",note:"note2",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-				{id:"18",name:"Matrix Printer",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-				{id:"19",name:"Matrix Printer",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-				{id:"20",name:"Desktop Computer",note:"note",stock:"Yes",ship:"FedEx", sdate:"2007-12-03"},
-				{id:"21",name:"Laptop",note:"Long text ",stock:"Yes",ship:"InTime",sdate:"2007-12-03"},
-				{id:"22",name:"LCD Monitor",note:"note3",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-				{id:"23",name:"Speakers",note:"note",stock:"No",ship:"ARAMEX",sdate:"2007-12-03"}
-			];
-			
-			var subgrid_data = 
-			[
-			 {id:"1", name:"sub grid item 1", qty: 11},
-			 {id:"2", name:"sub grid item 2", qty: 3},
-			 {id:"3", name:"sub grid item 3", qty: 12},
-			 {id:"4", name:"sub grid item 4", qty: 5},
-			 {id:"5", name:"sub grid item 5", qty: 2},
-			 {id:"6", name:"sub grid item 6", qty: 9},
-			 {id:"7", name:"sub grid item 7", qty: 3},
-			 {id:"8", name:"sub grid item 8", qty: 8}
-			];
 			
 			jQuery(function($) {
 				var grid_selector = "#grid-table";
 				var pager_selector = "#grid-pager";
-				
 				
 				var parent_column = $(grid_selector).closest('[class*="col-"]');
 				//resize to fit page size
@@ -1148,9 +1113,6 @@
 				  }
 				})
 				*/
-				
-				
-			
 			
 			
 				jQuery(grid_selector).jqGrid({
@@ -1184,8 +1146,8 @@
 			
 					url: 'DeveloperController',
 					mtype: 'POST',
-					//data: grid_data,
 					datatype: "json",
+					loadonce: true,
 					height: 250,
 					colNames:[' ', 'ID','FirstName','LastName', 'Velocity'],
 					colModel:[
@@ -1200,9 +1162,9 @@
 							}
 						},
 						{name:'id',index:'id', width:60, sorttype:"int", editable: false},
-						{name:'firstName',index:'firstName',width:150, editable:true, editoptions:{size:"20",maxlength:"30"}},
-						{name:'lastName',index:'lastName', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-						{name:'velocity',index:'velocity', width:80, sortable:true,editable: true,edittype:"textarea", editoptions:{rows:"2",cols:"10"}} 
+						{name:'firstName', index:'firstName', width:150, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules:{required:true}},
+						{name:'lastName', index:'lastName', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}, editrules:{required:true}},
+						{name:'velocity', index:'velocity', width:80, sortable:true, editable: true, editrules:{required:true, integer:true}} 
 					], 
 			
 					viewrecords : true,
@@ -1227,7 +1189,7 @@
 						}, 0);
 					},
 			
-					editurl: "./dummy.php",//nothing is saved
+					editurl: "DeveloperController",//nothing is saved
 					caption: "Desarrolladores"
 			
 					//,autowidth: true,
@@ -1248,8 +1210,6 @@
 				});
 				$(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
 				
-				
-			
 				//enable search/filter toolbar
 				//jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
 				//jQuery(grid_selector).filterToolbar({});
@@ -1286,7 +1246,7 @@
 						refresh: true,
 						refreshicon : 'ace-icon fa fa-refresh green',
 						view: true,
-						viewicon : 'ace-icon fa fa-search-plus grey',
+						viewicon : 'ace-icon fa fa-search-plus grey'
 					},
 					{
 						//edit record form
@@ -1309,7 +1269,7 @@
 							var form = $(e[0]);
 							form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
 							.wrapInner('<div class="widget-header" />')
-							style_edit_form(form);
+							//style_edit_form(form);
 						}
 					},
 					{
@@ -1323,17 +1283,6 @@
 							style_delete_form(form);
 							
 							form.data('styled', true);
-						},
-						onClick : function(e) {
-							alert(e);
-							$.ajax({  
-							    type: "GET",  
-							    url: "DeveloperController",  
-							    data: {id : e},  
-							    success: function(result){  
-							      alert(result);
-							    }                
-							  });  
 						}
 					},
 					{
@@ -1368,9 +1317,9 @@
 				
 				function style_edit_form(form) {
 					//enable datepicker on "sdate" field and switches for "stock" field
-					form.find('input[name=sdate]').datepicker({format:'yyyy-mm-dd' , autoclose:true})
+					//form.find('input[name=sdate]').datepicker({format:'yyyy-mm-dd' , autoclose:true})
 					
-					form.find('input[name=stock]').addClass('ace ace-switch ace-switch-5').after('<span class="lbl"></span>');
+					//form.find('input[name=stock]').addClass('ace ace-switch ace-switch-5').after('<span class="lbl"></span>');
 							   //don't wrap inside a label element, the checkbox value won't be submitted (POST'ed)
 							  //.addClass('ace ace-switch ace-switch-5').wrap('<label class="inline" />').after('<span class="lbl"></span>');
 			
@@ -1483,13 +1432,140 @@
 					$('.navtable .ui-pg-button').tooltip({container:'body'});
 					$(table).find('.ui-pg-div').tooltip({container:'body'});
 				}
-			
+				
+
+				function exportTableToCSV() {
+					
+					var ajax_data = {
+						"oper"     : "export"
+					};
+							 
+					$.ajax({
+						url: "DeveloperController",
+						data: ajax_data,
+						async: false,
+						type: "post",
+						success: function(respuesta) {
+							
+							filename='export.csv';
+							
+							if (false && window.navigator.msSaveBlob) {
+
+								var blob = new Blob([ decodeURIComponent(respuesta) ], {
+									type : 'text/csv;charset=utf8'
+								});
+								window.navigator.msSaveBlob(blob, filename);
+
+							} else if (window.Blob && window.URL) {
+								var blob = new Blob([ respuesta ], {
+									type : 'text/csv;charset=utf8'
+								});
+								var csvUrl = URL.createObjectURL(blob);
+
+								$("#export").attr({
+									'download' : filename,
+									'href' : csvUrl
+								});
+							} else {
+								// Data URI
+								var csvData = 'data:application/csv;charset=utf-8,'
+										+ encodeURIComponent(respuesta);
+
+								$("#export").attr({
+									'download' : filename,
+									'href' : csvData,
+									'target' : '_blank'
+								});
+							}
+					     }
+					});
+				}
+				
+				
+				function exportTableToCSV2($table, filename) {
+					var $rows = $table.find('tr:has(td)'),
+					// Temporary delimiter characters unlikely to be typed by keyboard
+
+					// This is to avoid accidentally splitting the actual contents
+					tmpColDelim = String.fromCharCode(11), // vertical tab character
+					tmpRowDelim = String.fromCharCode(0), // null character
+
+					// actual delimiter characters for CSV format
+					colDelim = '","', rowDelim = '"\r\n"',
+
+					// Grab text from table into CSV formatted string
+					csv = '"'
+							+ $rows.map(function(i, row) {
+								var $row = $(row), $cols = $row.find('td');
+
+								return $cols.map(function(j, col) {
+									var $col = $(col), text = $col.text();
+
+									return text.replace(/"/g, '""'); // escape double quotes
+
+								}).get().join(tmpColDelim);
+
+							}).get().join(tmpRowDelim).split(tmpRowDelim).join(
+									rowDelim).split(tmpColDelim).join(colDelim)
+							+ '"';
+
+					// Deliberate 'false', see comment below
+					if (false && window.navigator.msSaveBlob) {
+
+						var blob = new Blob([ decodeURIComponent(csv) ], {
+							type : 'text/csv;charset=utf8'
+						});
+
+						// Crashes in IE 10, IE 11 and Microsoft Edge
+						// See MS Edge Issue #10396033: https://goo.gl/AEiSjJ
+						// Hence, the deliberate 'false'
+						// This is here just for completeness
+						// Remove the 'false' at your own risk
+						window.navigator.msSaveBlob(blob, filename);
+
+					} else if (window.Blob && window.URL) {
+						// HTML5 Blob        
+						var blob = new Blob([ csv ], {
+							type : 'text/csv;charset=utf8'
+						});
+						var csvUrl = URL.createObjectURL(blob);
+
+						$(this).attr({
+							'download' : filename,
+							'href' : csvUrl
+						});
+					} else {
+						// Data URI
+						var csvData = 'data:application/csv;charset=utf-8,'
+								+ encodeURIComponent(csv);
+
+						$(this).attr({
+							'download' : filename,
+							'href' : csvData,
+							'target' : '_blank'
+						});
+					}
+				}
+
+				// This must be a hyperlink
+				$("#export").on('click', function(event) {
+					
+					exportTableToCSV();
+					//var args = [ $('#grid-table'), 'export.csv' ];
+					//exportTableToCSV2.apply(this, args);
+					
+					// If CSV, don't do event.preventDefault() or return false
+					// We actually need this to be a typical hyperlink
+				});
+				
 				//var selr = jQuery(grid_selector).jqGrid('getGridParam','selrow');
-			
+				//jQuery(grid_selector).jqgrid()
+
 				$(document).one('ajaxloadstart.page', function(e) {
 					$.jgrid.gridDestroy(grid_selector);
 					$('.ui-jqdialog').remove();
 				});
+
 			});
 		</script>
 	</body>
