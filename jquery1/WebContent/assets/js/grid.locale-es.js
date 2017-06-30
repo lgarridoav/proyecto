@@ -3,8 +3,8 @@
  * Traduccion jqGrid en Espa√±ol por Yamil Bracho
  * Traduccion corregida y ampliada por Faserline, S.L. 
  * http://www.faserline.com
- * Traduccion corregida y ampliada por Fern·n Castro Asensio
- * TraducciÛn corregida y ampliada por Luis S·nchez
+ * Traduccion corregida y ampliada por Fern√°n Castro Asensio
+ * Traducci√≥n corregida y ampliada por Luis S√°nchez
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
@@ -34,30 +34,30 @@ $.jgrid.regional["es"] = {
 	    emptyrecords: "Sin registros que mostrar",
 		loadtext: "Cargando...",
 		savetext: "Guardando...",
-		pgtext : "P·gina {0} de {1}",
-		pgfirst : "Primera p·gina",
-		pglast : "⁄ltima p·gina",
-		pgnext : "Siguiente p·gina",
-		pgprev : "Anterior p·gina",
-		pgrecs : "Registros por p·gina",
+		pgtext : "P√°gina {0} de {1}",
+		pgfirst : "Primera p√°gina",
+		pglast : "√öltima p√°gina",
+		pgnext : "Siguiente p√°gina",
+		pgprev : "Anterior p√°gina",
+		pgrecs : "Registros por p√°gina",
 		showhide: "Alternar Contraer Expandir Grid",
 		// mobile
-		pagerCaption : "Grid::Configurar p·gina",
-		pageText : "P·gina:",
-		recordPage : "Registros por p·gina",
-		nomorerecs : "No m·s registros...",
-		scrollPullup: "Arrastrar arriba para cargar m·s...",
+		pagerCaption : "Grid::Configurar p√°gina",
+		pageText : "P√°gina:",
+		recordPage : "Registros por p√°gina",
+		nomorerecs : "No m√°s registros...",
+		scrollPullup: "Arrastrar arriba para cargar m√°s...",
 		scrollPulldown : "Arrastrar arriba para refrescar...",
 		scrollRefresh : "Soltar para refrescar..."		
 	},
 	search : {
-	    caption: "B˙squeda...",
+	    caption: "B√∫squeda...",
 	    Find: "Buscar",
 	    Reset: "Limpiar",
-	    odata: [{ oper:'eq', text:"igual "},{ oper:'ne', text:"no igual a"},{ oper:'lt', text:"menor que"},{ oper:'le', text:"menor o igual que"},{ oper:'gt', text:"mayor que"},{ oper:'ge', text:"mayor o igual a"},{ oper:'bw', text:"empiece por"},{ oper:'bn', text:"no empiece por"},{ oper:'in', text:"est· en"},{ oper:'ni', text:"no est· en"},{ oper:'ew', text:"termina por"},{ oper:'en', text:"no termina por"},{ oper:'cn', text:"contiene"},{ oper:'nc', text:"no contiene"},{ oper:'nu', text:'es nulo'},{ oper:'nn', text:'no es nulo'}, {oper:'bt', text:'entre'}],
+	    odata: [{ oper:'eq', text:"igual "},{ oper:'ne', text:"no igual a"},{ oper:'lt', text:"menor que"},{ oper:'le', text:"menor o igual que"},{ oper:'gt', text:"mayor que"},{ oper:'ge', text:"mayor o igual a"},{ oper:'bw', text:"empiece por"},{ oper:'bn', text:"no empiece por"},{ oper:'in', text:"est√° en"},{ oper:'ni', text:"no est√° en"},{ oper:'ew', text:"termina por"},{ oper:'en', text:"no termina por"},{ oper:'cn', text:"contiene"},{ oper:'nc', text:"no contiene"},{ oper:'nu', text:'es nulo'},{ oper:'nn', text:'no es nulo'}, {oper:'bt', text:'entre'}],
 	    groupOps: [	{ op: "AND", text: "todo" },	{ op: "OR",  text: "cualquier" }	],
-		operandTitle : "Clic para seleccionar la operaciÛn de b˙squeda.",
-		resetTitle : "Reiniciar valores de b˙squeda",
+		operandTitle : "Clic para seleccionar la operaci√≥n de b√∫squeda.",
+		resetTitle : "Reiniciar valores de b√∫squeda",
 		addsubgrup : "Agregar subgrupo",
 		addrule : "Agregar regla",
 		delgroup : "Borrar grupo",
@@ -75,17 +75,17 @@ $.jgrid.regional["es"] = {
 		bExit : "Cancelar",
 	    msg: {
 	        required:"Campo obligatorio",
-	        number:"Introduzca un n˙mero",
+	        number:"Introduzca un n√∫mero",
 	        minValue:"El valor debe ser mayor o igual a ",
 	        maxValue:"El valor debe ser menor o igual a ",
-	        email: "no es una direcciÛn de correo v·lida",
+	        email: "no es una direcci√≥n de correo v√°lida",
 	        integer: "Introduzca un valor entero",
 		date: "Introduzca una fecha correcta ",
-		url: "no es una URL v·lida. Prefijo requerido ('http://' or 'https://')",
-		nodefined : " no est· definido.",
+		url: "no es una URL v√°lida. Prefijo requerido ('http://' or 'https://')",
+		nodefined : " no est√° definido.",
 		novalue : " valor de retorno es requerido.",
-		customarray : "La funciÛn personalizada debe devolver un array.",
-		customfcheck : "La funciÛn personalizada debe estar presente en el caso de validaciÛn personalizada."
+		customarray : "La funci√≥n personalizada debe devolver un array.",
+		customfcheck : "La funci√≥n personalizada debe estar presente en el caso de validaci√≥n personalizada."
 		}
 	},
 	view : {
@@ -94,7 +94,7 @@ $.jgrid.regional["es"] = {
 	},
 	del : {
 	    caption: "Eliminar",
-	    msg: "øDesea eliminar los registros seleccionados?",
+	    msg: "¬øDesea eliminar los registros seleccionados?",
 	    bSubmit: "Eliminar",
 	    bCancel: "Cancelar"
 	},
@@ -106,7 +106,7 @@ $.jgrid.regional["es"] = {
 	    deltext: " ",
 	    deltitle: "Eliminar fila seleccionada",
 	    searchtext: " ",
-	    searchtitle: "Buscar informaciÛn",
+	    searchtitle: "Buscar informaci√≥n",
 	    refreshtext: "",
 	    refreshtitle: "Recargar datos",
 	    alertcap: "Aviso",
@@ -116,7 +116,7 @@ $.jgrid.regional["es"] = {
 		savetext: "",
 		savetitle: "Guardar fila",
 		canceltext: "",
-		canceltitle : "Cancelar ediciÛn de fila",
+		canceltitle : "Cancelar edici√≥n de fila",
 		selectcaption : "Acciones..."
 	},
 	col : {
@@ -137,7 +137,7 @@ $.jgrid.regional["es"] = {
 		date : {
 			dayNames:   [
 				"Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa",
-				"Domingo", "Lunes", "Martes", "Mi√©rcoles", "Jueves", "Viernes", "S·bado"
+				"Domingo", "Lunes", "Martes", "Mi√©rcoles", "Jueves", "Viernes", "S√°bado"
 			],
 			monthNames: [
 				"Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic",
